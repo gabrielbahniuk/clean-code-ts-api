@@ -164,63 +164,63 @@ describe('Signup Controller', () => {
     expect(httpResponse.statusCode).toBe(500)
     expect(httpResponse.body).toEqual(new ServerError())
   })
-})
 
-test('Should call AddAccount with corect values', async () => {
-  const { sut, addAccountStub } = makeSut()
-  const addSpy = jest.spyOn(addAccountStub, 'add')
+  test('Should call AddAccount with corect values', async () => {
+    const { sut, addAccountStub } = makeSut()
+    const addSpy = jest.spyOn(addAccountStub, 'add')
 
-  const httpRequest = {
-    body: {
+    const httpRequest = {
+      body: {
+        name: 'any_name',
+        email: 'any_email@email.com',
+        password: 'any_password',
+        passwordConfirmation: 'any_password'
+      }
+    }
+    await sut.handle(httpRequest)
+    expect(addSpy).toHaveBeenCalledWith({
       name: 'any_name',
       email: 'any_email@email.com',
-      password: 'any_password',
-      passwordConfirmation: 'any_password'
-    }
-  }
-  await sut.handle(httpRequest)
-  expect(addSpy).toHaveBeenCalledWith({
-    name: 'any_name',
-    email: 'any_email@email.com',
-    password: 'any_password'
+      password: 'any_password'
+    })
   })
-})
 
-test('Should return 500 if AddAccount throws an Exception', async () => {
-  const { sut, addAccountStub } = makeSut()
-  jest.spyOn(addAccountStub, 'add').mockImplementationOnce(async () => {
-    return new Promise((resolve, reject) => reject(new Error()))
-  })
-  const httpRequest = {
-    body: {
-      name: 'any_name',
-      email: 'any_email@email.com',
-      password: 'any_password',
-      passwordConfirmation: 'any_password'
+  test('Should return 500 if AddAccount throws an Exception', async () => {
+    const { sut, addAccountStub } = makeSut()
+    jest.spyOn(addAccountStub, 'add').mockImplementationOnce(async () => {
+      return new Promise((resolve, reject) => reject(new Error()))
+    })
+    const httpRequest = {
+      body: {
+        name: 'any_name',
+        email: 'any_email@email.com',
+        password: 'any_password',
+        passwordConfirmation: 'any_password'
+      }
     }
-  }
-  const httpResponse = await sut.handle(httpRequest)
-  expect(httpResponse.statusCode).toBe(500)
-  expect(httpResponse.body).toEqual(new ServerError())
-})
+    const httpResponse = await sut.handle(httpRequest)
+    expect(httpResponse.statusCode).toBe(500)
+    expect(httpResponse.body).toEqual(new ServerError())
+  })
 
-test('Should return 200 if valid data is provided', async () => {
-  const { sut } = makeSut()
+  test('Should return 200 if valid data is provided', async () => {
+    const { sut } = makeSut()
 
-  const httpRequest = {
-    body: {
+    const httpRequest = {
+      body: {
+        name: 'valid_name',
+        email: 'valid_email@email.com',
+        password: 'valid_password',
+        passwordConfirmation: 'valid_password'
+      }
+    }
+    const httpResponse = await sut.handle(httpRequest)
+    expect(httpResponse.statusCode).toBe(200)
+    expect(httpResponse.body).toEqual({
+      id: 'valid_id',
       name: 'valid_name',
       email: 'valid_email@email.com',
-      password: 'valid_password',
-      passwordConfirmation: 'valid_password'
-    }
-  }
-  const httpResponse = await sut.handle(httpRequest)
-  expect(httpResponse.statusCode).toBe(200)
-  expect(httpResponse.body).toEqual({
-    id: 'valid_id',
-    name: 'valid_name',
-    email: 'valid_email@email.com',
-    password: 'valid_password'
+      password: 'valid_password'
+    })
   })
 })
