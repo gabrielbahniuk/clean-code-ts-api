@@ -1,0 +1,23 @@
+version: "3"
+services:
+  mongo-db-clean-api:
+    container_name: mongo-db-clean-api-container
+    image: mongo:3
+    restart: always
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "9000:27017"
+  clean-api:
+    container_name: clean-api-container
+    build: .
+    image: clean-node-api
+    restart: always
+    command: npm start
+    volumes: 
+      - ./dist:/usr/src/clean-node-api/dist
+    ports:
+      - "10333:3333"
+    links:
+      - mongo-db-clean-api        
+
