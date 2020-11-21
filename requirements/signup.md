@@ -19,7 +19,7 @@
 1. ✅ Return error **400** if name, email, password or passwordConfirmation are not provided by the client
 2. ✅ Return error **400** if password and passwordConfirmation are not the same
 3. ✅ Return error **400** if the field email is invalid
-4. :x: Return error **403** if the provided email is alredy in use
+4. ✅ Return error **403** if the provided email is already in use
 5. ✅ Return error **500** if there is an error while generating an encrypted password
 6. ✅ Return error **500** if there is an error while trying to create the user account
 7. ✅  Return error **500** if there is an error while trying to generate the access token
