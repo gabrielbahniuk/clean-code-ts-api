@@ -10,16 +10,16 @@ services:
       - "9000:27017"
   clean-api:
     container_name: clean-api-container
-    build: .
-    image: clean-node-api
+    image: node:12
+    working_dir: /usr/src/clean-node-api
     restart: always
-    command: npm run debug
-    volumes: 
+    command: bash -c "npm install --only=prod && npm run debug"
+    volumes:
       - ./dist:/usr/src/clean-node-api/dist
       - ./package.json:/usr/src/clean-node-api/package.json
     ports:
       - "10333:3333"
       - "19222:9222"
     links:
-      - mongo-db-clean-api        
+      - mongo-db-clean-api
 
