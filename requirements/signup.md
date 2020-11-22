@@ -6,7 +6,7 @@
 1. ✅ Validate required data **name**, **email**, **password** and **passwordConfirmation**
 2. ✅ Validate that **password** and **passwordConfirmation** are the same
 3. ✅ Validate that field **email** is a valid email
-4. :x: **Validate** if there is already an user with the provided email
+4. ✅ **Validate** if there is already an user with the provided email
 5. ✅ Generate an **encrypted** password (it cannot be decrypted)
 6. ✅ **Create** an account for the user with the provided data, **replacing** the password for the encrypted password
 7. ✅  Generate an access **token** from the user ID
