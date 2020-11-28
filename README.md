@@ -148,7 +148,7 @@ Clean Architecture to distribute responsibility in layers, always following SOLI
 
 * Connect and Reconnect
 * Collections
-* InsertOne and InserMany
+* InsertOne and InsertMany
 * Find, FindOne and FindOneAndUpdate
 * DeleteMany
 * UpdateOne
