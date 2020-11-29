@@ -25,7 +25,7 @@ Clean Architecture to distribute responsibility in layers, always following SOLI
 1. [SignUp](./requirements/signup.md)
 2. [Login](./requirements/login.md)
 3. [Create survey](./requirements/add-survey.md)
-4. [List surveys] Work in Progress
+4. [List surveys](./requirements/load-surveys.md)
 5. [Answer survey] Work in Progress
 6. [Survey result] Work in Progress
 
