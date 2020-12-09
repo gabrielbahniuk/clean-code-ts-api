@@ -16,6 +16,6 @@
 1. :x: Returns error **403** if the request was not made by an user
 2. ✅ Returns error **403** if the survey_id in the URL is not valid
 3. ✅ Returns error **403** if the survey answer from the client is invalid
-4. :x: Returns error **500** if there is an error while creating survey result
-5. :x: Returns error **500** if there is an error while updating the survey result
+4. ✅ Returns error **500** if there is an error while creating survey result
+5. ✅ Returns error **500** if there is an error while updating the survey result
 6. ✅ Returns error **500** if there is an error while loading the survey
