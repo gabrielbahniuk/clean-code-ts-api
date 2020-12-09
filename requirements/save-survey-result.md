@@ -8,7 +8,7 @@
 3. ✅ Validate if field **answer** is a valid answer
 4. ✅ **Create** a survey result with the provided data if there is no result
 5. ✅ **Update** the survey result with the provided data if there is already an answer for that
-6. :x: Return **200** with the survey result data
+6. ✅ Return **200** with the survey result data
 
 > ## Exceptions
 
