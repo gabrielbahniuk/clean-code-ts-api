@@ -18,4 +18,4 @@
 3. :x: Returns error **403** if the survey answer from the client is invalid
 4. :x: Returns error **500** if there is an error while creating survey result
 5. :x: Returns error **500** if there is an error while updating the survey result
-6. :x: Returns error **500** if there is an error while loading the survey
+6. ✅ Returns error **500** if there is an error while loading the survey
