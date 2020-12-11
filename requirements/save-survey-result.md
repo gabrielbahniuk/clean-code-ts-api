@@ -2,8 +2,8 @@
 
 > ## Success case
 
-0. :x: Receive **PUT** request on route **/api/surveys/{survey_id}/results**
-1. :x: Validate if the request was made by an **user**
+0. ✅ Receive **PUT** request on route **/api/surveys/{survey_id}/results**
+1. ✅ Validate if the request was made by an **user**
 2. ✅ Validate parameter **survey_id**
 3. ✅ Validate if field **answer** is a valid answer
 4. ✅ **Create** a survey result with the provided data if there is no result
@@ -12,8 +12,8 @@
 
 > ## Exceptions
 
-0. :x: Returns error **404** if the API does not exist
-1. :x: Returns error **403** if the request was not made by an user
+0. ✅ Returns error **404** if the API does not exist
+1. ✅ Returns error **403** if the request was not made by an user
 2. ✅ Returns error **403** if the survey_id in the URL is not valid
 3. ✅ Returns error **403** if the survey answer from the client is invalid
 4. ✅ Returns error **500** if there is an error while creating survey result
